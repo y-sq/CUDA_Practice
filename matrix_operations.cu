@@ -369,6 +369,7 @@ float runReduce(int size, int maxThreads, int maxBlocks, float *a_in)
 	int numBlocks = 0, numThreads = 0;
 	setBlocksAndThreads(size, maxBlocks, maxThreads, numBlocks, numThreads);
 	float * a_out = nullptr; cudaMalloc((void **) &a_out, numBlocks*sizeof(float));
+	float * malloced_out = a_out;
 	reduce<true>(size, numThreads, numBlocks, a_in, a_out);
 	size = numBlocks;
 
@@ -390,7 +391,7 @@ float runReduce(int size, int maxThreads, int maxBlocks, float *a_in)
 		cudaMemcpy(&result, a_out, sizeof(float), cudaMemcpyDeviceToHost);
 	}
 
-	cudaFree(a_out);
+	cudaFree(malloced_out); // should not be a_out
     return result;
 }
 
