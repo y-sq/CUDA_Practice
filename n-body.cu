@@ -143,7 +143,7 @@ const int time_step_num=10;						////number of time steps
 const double epsilon=1e-2;						////epsilon added in the denominator to avoid 0-division when calculating the gravitational force
 const double epsilon_squared=epsilon*epsilon;	////epsilon squared
 
-const unsigned int grid_size=20;				////assuming particles are initialized on a background grid
+const unsigned int grid_size=16;				////assuming particles are initialized on a background grid
 const unsigned int particle_n=pow(grid_size,3);	////assuming each grid cell has one particle at the beginning
 
 template <typename T> 
