@@ -1,5 +1,6 @@
 # CUDA_Practice
-Some practice codes for CUDA
+Some practice codes for CUDA; The assignments for Dartmouth's course COSC 189.03.
+
 
 - matrix operations: matrix_operations.cu
     - A * B
